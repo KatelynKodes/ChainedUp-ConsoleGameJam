@@ -7,6 +7,7 @@ namespace ConsoleGameJam
     class Game
     {
         private bool _gameOver;
+        Map map = new Map();
 
         public void Run()
         {
@@ -21,7 +22,7 @@ namespace ConsoleGameJam
 
         private void Start()
         {
-            
+            map.Start();
         }
 
         private void Update()
