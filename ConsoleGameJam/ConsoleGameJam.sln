@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleGameJam", "ConsoleGameJam\ConsoleGameJam.csproj", "{85C7BF94-7D2E-4650-8D08-2F0A5FAC5BDA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{85C7BF94-7D2E-4650-8D08-2F0A5FAC5BDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85C7BF94-7D2E-4650-8D08-2F0A5FAC5BDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85C7BF94-7D2E-4650-8D08-2F0A5FAC5BDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85C7BF94-7D2E-4650-8D08-2F0A5FAC5BDA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AEDF881B-3A99-4562-96F4-C977C1C54F8D}
+	EndGlobalSection
+EndGlobal
