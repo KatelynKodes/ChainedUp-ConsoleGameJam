@@ -16,6 +16,9 @@ namespace ConsoleGameJam
     {
         private bool _gameOver;
         private Scene _currentScene;
+        private Entity _currentEnemy;
+        private Player _player;
+
 
         /// <summary>
         /// Called when the game runs
@@ -178,6 +181,43 @@ namespace ConsoleGameJam
                     _gameOver = true;
                     break;
             }
-        } 
+        }
+
+        public void Fight()
+        {
+            float damageDealt = 0;
+            string previousEnemyState = "free";
+            int turn = 1;
+
+            _currentEnemy.PrintStats();
+            Console.ReadKey(true);
+
+            while (_currentEnemy.GetHealth > 0 && _player.GetHealth > 0)
+            {
+                if (turn == 1)
+                {
+                    int playerchoice = GetInput("What does " + _player.GetName + " do??", "Attack", "Restrain");
+                    switch (playerchoice)
+                    {
+                        case 1:
+                            damageDealt = _player.Attack(_currentEnemy);
+                            _currentEnemy.DecreaseHealth(damageDealt);
+                            Console.WriteLine(_player.GetName + " Attacked " + _currentEnemy.GetName +
+                                "And did " + damageDealt + " damage");
+                            break;
+                        case 2:
+                            Console.WriteLine(_player.GetName + " restrained the " + _currentEnemy.GetName);
+                            break;
+                    }
+                }
+                else if (turn == 2)
+                {
+                    damageDealt = _currentEnemy.Attack(_player);
+                    _currentEnemy.DecreaseHealth(damageDealt);
+                    Console.WriteLine("The " + _currentEnemy.GetName + " Attacked " + _player.GetName + 
+                        "And did " + damageDealt + " damage");
+                }
+            }
+        }
     }
 }

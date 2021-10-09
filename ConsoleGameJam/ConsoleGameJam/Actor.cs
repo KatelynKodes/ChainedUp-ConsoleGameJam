@@ -9,6 +9,11 @@ namespace ConsoleGameJam
         private char _icon;
         private string _name;
 
+        public string GetName
+        {
+            get{ return _name};
+        }
+
         public Actor(string ActorName, char Sprite)
         {
             _name = ActorName;

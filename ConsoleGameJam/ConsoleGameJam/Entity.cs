@@ -41,6 +41,23 @@ namespace ConsoleGameJam
             _health -= decreasevalue;
         }
 
+        /// <summary>
+        /// Returns a float depending on the current enemy's attackpower subtracted by the defensepower
+        /// of an Entity that is passed into the method
+        /// </summary>
+        /// <param name="Enemy"> the entity the current entity is fighting</param>
+        /// <returns></returns>
+        public float Attack(Entity Enemy)
+        {
+            float damagedealt = this._attkPowr - Enemy._defensePowr;
+
+            if (damagedealt <= 0)
+            {
+                damagedealt = 0;
+            }
+
+            return damagedealt;
+        }
 
         /// <summary>
         /// Prints stats to the console.
