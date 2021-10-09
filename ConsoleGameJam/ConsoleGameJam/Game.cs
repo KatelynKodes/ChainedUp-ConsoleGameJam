@@ -16,8 +16,11 @@ namespace ConsoleGameJam
     {
         private bool _gameOver;
         private Scene _currentScene;
-        private Entity _currentEnemy;
+        private Enemy _currentEnemy;
         private Player _player;
+
+        private Enemy _dwarfEnemy;
+        private Enemy _TrollEnemy;
 
 
         /// <summary>
@@ -34,6 +37,13 @@ namespace ConsoleGameJam
             End();
         }
 
+        private void InitializeEnemies()
+        {
+            _dwarfEnemy = new Enemy("Dwarf", 'D', 200, 20, 30);
+            _TrollEnemy = new Enemy("Troll", 'T', 300, 40, 20);
+
+        }
+
         /// <summary>
         /// Called at the start of the game
         /// </summary>
@@ -41,6 +51,8 @@ namespace ConsoleGameJam
         {
             _gameOver = false;
             _currentScene = Scene.MAINMENU;
+            _player = new Player("The Prisoner", 'P', 400, 40, 30);
+            InitializeEnemies();
         }
 
         /// <summary>
@@ -212,10 +224,28 @@ namespace ConsoleGameJam
                 }
                 else if (turn == 2)
                 {
-                    damageDealt = _currentEnemy.Attack(_player);
-                    _currentEnemy.DecreaseHealth(damageDealt);
-                    Console.WriteLine("The " + _currentEnemy.GetName + " Attacked " + _player.GetName + 
-                        "And did " + damageDealt + " damage");
+                    if (!_currentEnemy.GetRestraintBool)
+                    {
+                        damageDealt = _currentEnemy.Attack(_player);
+                        _currentEnemy.DecreaseHealth(damageDealt);
+                        Console.WriteLine("The " + _currentEnemy.GetName + " Attacked " + _player.GetName +
+                            "And did " + damageDealt + " damage");
+                    }
+                    else
+                    {
+                        if (previousEnemyState.ToLower() == "restrained")
+                        {
+                            Console.WriteLine("The " + _currentEnemy.GetName + " freed itself!");
+                            damageDealt = _currentEnemy.Attack(_player);
+                            _currentEnemy.DecreaseHealth(damageDealt);
+                            Console.WriteLine("The " + _currentEnemy.GetName + " Attacked " + _player.GetName +
+                                "And did " + damageDealt + " damage");
+                        }
+                        else
+                        {
+                            Console.WriteLine("The " + _currentEnemy.GetName + " is restrained.");
+                        }
+                    }
                 }
             }
         }
