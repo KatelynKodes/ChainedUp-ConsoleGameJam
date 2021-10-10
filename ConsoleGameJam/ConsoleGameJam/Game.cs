@@ -172,7 +172,7 @@ namespace ConsoleGameJam
         /// </summary>
         private void DisplayMainMenu()
         {
-            int PlayGame = GetInput("[Game Name title]: A Console Game Jam Game", "Play Game", "Quit");
+            int PlayGame = GetInput("CHAINED UP: A Console Game Jam Game", "Play Game", "Quit");
             switch (PlayGame)
             {
                 case 1:
