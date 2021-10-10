@@ -11,7 +11,7 @@ namespace ConsoleGameJam
 
         public string GetName
         {
-            get{ return _name};
+            get{ return _name; }
         }
 
         public Actor(string ActorName, char Sprite)
